@@ -1,7 +1,9 @@
 import React from 'react';
+import Collapse from '../components/Collapse.jsx';
 import { useParams } from 'react-router-dom';
 import logements from '../assets/logements.json';
-import '../styles/Logement.sass';
+
+import '../styles/Logements.sass';
 
 function Logement() {
   const { id } = useParams();
@@ -11,41 +13,52 @@ function Logement() {
     return <p>Logement non trouvé</p>;
   }
 
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <i
+          key={i}
+          className={`fa-solid fa-star ${i < rating ? 'filled' : 'empty'}`}
+        ></i>
+      );
+    }
+    return stars;
+  };
+
   return (
     <div className='logement'>
       <div className='slideshow'>
-        {location.pictures.map((picture, index) => (
-          <img key={index} src={picture} alt={`Slide ${index + 1}`} />
-        ))}
+        <img src={location.pictures[0]} alt={location.title} />
       </div>
-      <div className='info'>
-        <h1>{location.title}</h1>
-        <p>{location.location}</p>
-        <div className='tags'>
-          {location.tags.map((tag, index) => (
-            <span key={index} className='tag'>{tag}</span>
-          ))}
+      <div className='listInfo'>
+        <div className='info'>
+          <p className='title'>{location.title}</p>
+          <p className='country'>{location.location}</p>
+          <div className='tags'>
+            {location.tags.map((tag, index) => (
+              <span key={index} className='tag'>{tag}</span>
+            ))}
+          </div>
         </div>
         <div className='host'>
-          <p>{location.host.name}</p>
-          <img src={location.host.picture} alt={location.host.name} />
+          <div className='identity'>
+            <p>{location.host.name}</p>
+            <img src={location.host.picture} alt={location.host.name} />
+          </div>
+          <div className='rating'>
+            {renderStars(location.rating)}
+          </div>
         </div>
-        <div className='rating'>
-          {'★'.repeat(location.rating)}
-          {'☆'.repeat(5 - location.rating)}
-        </div>
-        <div className='description'>
-          <h2>Description</h2>
-          <p>{location.description}</p>
-        </div>
-        <div className='equipments'>
-          <h2>Équipements</h2>
-          <ul>
-            {location.equipments.map((equipment, index) => (
-              <li key={index}>{equipment}</li>
-            ))}
-          </ul>
-        </div>
+      </div>
+      <div className='listDescribe'>
+        <Collapse title="Description" content={<p>{location.description}</p>} />
+        <Collapse title="Équipements" content={<ul>{location.equipments.map((equipment, index) => (
+          <li key={index}>{equipment}</li>
+        ))}
+        </ul>
+        }
+        />
       </div>
     </div>
   );

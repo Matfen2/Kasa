@@ -1,14 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Home.sass';
 import homeLogo from '../assets/home.png';
 import logements from '../assets/logements.json';
 
 function Home() {
-  const history = useHistory();
+  const navigate = useNavigate(); // useNavigate renvoie directement une fonction
 
   const showLocation = (id) => {
-    history.push(`/logement/${id}`);
+    navigate(`/logements/${id}`); // Utiliser navigate directement pour la navigation
   };
 
   const listLocation = logements.map((location) => (

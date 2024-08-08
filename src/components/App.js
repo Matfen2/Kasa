@@ -1,10 +1,10 @@
 // App.jsx
-import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import '../styles/App.sass'
 import Header from './Header';
 import Home from './Home';
-import Footer from './Footer';
 import Logements from './Logements';
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/logements" element={<Logements />} />
+          <Route path="/logements/:id" element={<Logements />} />
         </Routes>
         <Footer />
       </Router>
@@ -23,4 +23,3 @@ function App() {
 }
 
 export default App;
-
