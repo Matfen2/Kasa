@@ -1,0 +1,21 @@
+import React from 'react';
+import '../styles/Header.sass';
+import { Link } from 'react-router-dom';
+import logoSite from '../assets/logoSite.png';
+
+function Header() {
+  return (
+    <div className='header'>
+      <Link to="/"><img src={logoSite} alt='Kasa-Logo' className='kasaLogo' /></Link>
+      <nav>
+        <ul>
+          <li className='routePage'><Link to="/home" className='route'>Accueil</Link></li>
+          <li className='routePage'><Link to="/logements" className='route'>A propos</Link></li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
+
+export default Header;
+
