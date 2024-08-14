@@ -1,5 +1,6 @@
 import React from 'react';
-import Collapse from '../components/Collapse.jsx';
+import Slideshow from '../components/Slideshow'; // Import the Slideshow component
+import Carousel from '../components/Carousel';
 import { useParams } from 'react-router-dom';
 import logements from '../assets/logements.json';
 
@@ -29,7 +30,7 @@ function Logement() {
   return (
     <div className='logement'>
       <div className='slideshow'>
-        <img src={location.pictures[0]} alt={location.title} />
+        <Slideshow pictures={location.pictures} /> {/* Use Slideshow component here */}
       </div>
       <div className='listInfo'>
         <div className='info'>
@@ -52,13 +53,14 @@ function Logement() {
         </div>
       </div>
       <div className='listDescribe'>
-        <Collapse title="Description" content={<p>{location.description}</p>} />
-        <Collapse title="Équipements" content={<ul>{location.equipments.map((equipment, index) => (
-          <li key={index}>{equipment}</li>
-        ))}
-        </ul>
-        }
-        />
+        <Carousel title="Description" content={<p>{location.description}</p>} />
+        <Carousel title="Équipements" content={
+          <ul>
+            {location.equipments.map((equipment, index) => (
+              <li key={index}>{equipment}</li>
+            ))}
+          </ul>
+        } />
       </div>
     </div>
   );

@@ -1,34 +1,37 @@
 .collapse
-  width: 100%
-  margin-top: 30px 
-  & > div
+  width: 80%
+  margin:  auto
+  background-color: #ff6f61
+  border-radius: 5px
+  cursor: pointer
+  padding: 1px 20px
+  color: white
+  text-align: left
+  font-weight: bold
+  display: flex
+  flex-direction: column
+
+  .collapse-header
     display: flex
+    font-size: 1.2em
+    font-weight: 600
     justify-content: space-between
     align-items: center
-    background: #ff6f61
-    color: white
-    padding: 10px 10px
-    cursor: pointer
-    font-weight: 700
-    border-radius: 10px
-    margin-bottom: 10px
     font-family: "Montserrat", sans-serif
-    .icon
-      font-size: 1.5em
-  .content
-    margin-top: -10px
-    background: #f9f9f9
-    padding: 10px 20px
-    border-radius: 10px
-    ul
-      list-style-type: none
-      margin: 0
-      li
-        font-size: 1em
-        color: #333
-        font-family: "Montserrat", sans-serif
-    p 
-      font-size: 1em
-      color: #333
-      padding: 0px 10px
-      font-family: "Montserrat", sans-serif
+
+  .fa-solid
+    font-size: 1.6em
+    transition: transform 0.3s ease
+
+  .collapse-content
+    background-color: white
+    color: black
+    padding: 15px
+    border-radius: 0 0 10px 10px
+    text-align: left
+    display: none // Masquer le contenu par défaut
+
+  &.open .collapse-content
+    display: block // Afficher le contenu lorsque le collapse est ouvert
+
+ 

@@ -1,45 +1,30 @@
 import React, { useState } from 'react';
-import logements from '../assets/logements.json';
 import '../styles/Slideshow.sass';
 
-function Slideshow() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const locationsPerPage = 6;
-
-  const totalSlides = Math.ceil(logements.length / locationsPerPage);
+function Slideshow({ pictures }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === pictures.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? pictures.length - 1 : prevIndex - 1
+    );
   };
 
-  const startIndex = currentSlide * locationsPerPage;
-  const endIndex = startIndex + locationsPerPage;
-  const currentLocations = logements.slice(startIndex, endIndex);
-
   return (
-    <div className="slideshow">
-      <div className="slides">
-        {currentLocations.map((location) => (
-          <div className="card" key={location.id}>
-            <img src={location.cover} alt={location.title} />
-            <div className="infoLocation">
-              <p>{location.title}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      {totalSlides > 1 && (
-        <>
-          <button className="prev" onClick={prevSlide}>&#10094;</button>
-          <button className="next" onClick={nextSlide}>&#10095;</button>
-          <div className="slide-number">
-            {currentSlide + 1} / {totalSlides}
-          </div>
-        </>
+    <div className='slideshow'>
+      {pictures.length > 1 && (
+        <i className="fa-solid fa-chevron-left left-arrow" onClick={prevSlide}></i>
+      )}
+      <img src={pictures[currentIndex]} alt={`Slide ${currentIndex + 1}`} className='slide-image'/>
+      <p className='slide-index'>{`${currentIndex + 1}/${pictures.length}`}</p>
+      {pictures.length > 1 && (
+        <i className="fa-solid fa-chevron-right right-arrow" onClick={nextSlide}></i>
       )}
     </div>
   );

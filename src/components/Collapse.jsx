@@ -4,13 +4,17 @@ import '../styles/Collapse.sass';
 function Collapse({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="collapse">
-      <div onClick={() => setIsOpen(!isOpen)}>
-        <span>{title}</span>
-        <i className={`fa-solid fa-chevron-${isOpen ? 'down' : 'up'} icon`}></i>
+    <div className={`collapse ${isOpen ? 'open' : ''}`}>
+      <div className="collapse-header" onClick={toggleCollapse}>
+        <h2>{title}</h2>
+        <i className={`fa-solid ${isOpen ? 'fa-chevron-down' : 'fa-chevron-up'}`}></i>
       </div>
-      {isOpen && <div className="content">{content}</div>}
+      {isOpen && <div className="collapse-content">{content}</div>}
     </div>
   );
 }

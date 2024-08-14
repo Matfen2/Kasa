@@ -10,7 +10,7 @@ function Header() {
       <nav>
         <ul>
           <li className='routePage'><Link to="/home" className='route'>Accueil</Link></li>
-          <li className='routePage'><Link to="/logements" className='route'>A propos</Link></li>
+          <li className='routePage'><Link to="/about" className='route'>A propos</Link></li>
         </ul>
       </nav>
     </div>

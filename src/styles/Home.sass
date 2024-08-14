@@ -1,31 +1,18 @@
 .home
   width: 90%
-  text-align: center
-  position: relative
   margin: auto
 
 .welcome
-  position: relative
   width: 100%
+  height: 250px
+  position: relative
   margin-bottom: 20px
 
 .welcome img
   width: 100%
-  height: 200px
-  display: block
-  position: relative
-  z-index: 1
-
-.welcome::before
-  content: ""
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
   height: 100%
-  background-color: black
-  opacity: 0.5
-  z-index: 2
+  object-fit: cover
+  border-radius: 10px
 
 .centered-text
   position: absolute
@@ -33,60 +20,23 @@
   left: 50%
   transform: translate(-50%, -50%)
   color: white
-  font-size: 2.6em
+  font-size: 5.6em
   font-weight: bold
   font-family: "Montserrat", sans-serif
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
-  z-index: 3
 
-.location 
-  height: 60%
-  border-radius: 5px 
+.location
+  width: 95%
+  margin: 25px auto
+  border-radius: 10px 
+  margin-bottom: 50px
   background-color: rgb(231, 231, 231)
-  padding: 20px
+  padding: 15px 40px
 
 .listHome
   display: flex
   flex-wrap: wrap
-  gap: 20px
-  justify-content: center
-
-.card
-  background-color: #ff6f61
-  border-radius: 10px
-  flex: 0 0 30%
-  height: 400px
-  display: flex
-  flex-direction: column
-  justify-content: flex-end
-  overflow: hidden
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
-  transition: transform 0.3s, box-shadow 0.3s
-  position: relative
-  margin-bottom: 20px
-
-.card img
-  width: 100%
-  max-width: 650px
-  height: 100%
-  object-fit: cover
-
-
-.card:hover
-  transform: translateY(-5px)
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
-
-.infoLocation
-  position: relative
-  z-index: 2
-  padding: 10px
-  color: white
-  width: 100%
-  text-align: left
-
-.infoLocation p
-  margin: 0
-  font-size: 1.2em
-  font-weight: bold
-  font-family: "Montserrat", sans-serif
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+  margin-top: -20px 
+  padding-bottom: 25px
+  justify-content: space-between
+  gap: 3%
