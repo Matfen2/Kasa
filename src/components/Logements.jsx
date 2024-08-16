@@ -1,17 +1,18 @@
 import React from 'react';
-import Slideshow from '../components/Slideshow'; // Import the Slideshow component
-import Carousel from '../components/Carousel';
-import { useParams } from 'react-router-dom';
+import Slideshow from '../components/Slideshow'; 
+import Collapse from '../components/Collapse'; 
+import { useParams, Navigate } from 'react-router-dom';
 import logements from '../assets/logements.json';
 
 import '../styles/Logements.sass';
+import '../styles/Collapse.sass'; 
 
 function Logement() {
   const { id } = useParams();
   const location = logements.find((logement) => logement.id === id);
 
   if (!location) {
-    return <p>Logement non trouvé</p>;
+    return <Navigate to="/404" />;
   }
 
   const renderStars = (rating) => {
@@ -30,7 +31,7 @@ function Logement() {
   return (
     <div className='logement'>
       <div className='slideshow'>
-        <Slideshow pictures={location.pictures} /> {/* Use Slideshow component here */}
+        <Slideshow pictures={location.pictures} /> 
       </div>
       <div className='listInfo'>
         <div className='info'>
@@ -44,8 +45,8 @@ function Logement() {
         </div>
         <div className='host'>
           <div className='identity'>
-            <p>{location.host.name}</p>
-            <img src={location.host.picture} alt={location.host.name} />
+            <p className='name'>{location.host.name}</p>
+            <img src={location.host.picture} alt={location.host.name} className='people' />
           </div>
           <div className='rating'>
             {renderStars(location.rating)}
@@ -53,8 +54,8 @@ function Logement() {
         </div>
       </div>
       <div className='listDescribe'>
-        <Carousel title="Description" content={<p>{location.description}</p>} />
-        <Carousel title="Équipements" content={
+        <Collapse title="Description" content={<p>{location.description}</p>} />
+        <Collapse title="Équipements" content={
           <ul>
             {location.equipments.map((equipment, index) => (
               <li key={index}>{equipment}</li>

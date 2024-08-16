@@ -7,8 +7,8 @@ function Header() {
   return (
     <div className='header'>
       <Link to="/"><img src={logoSite} alt='Kasa-Logo' className='kasaLogo' /></Link>
-      <nav>
-        <ul>
+      <nav className='listRoads'>
+        <ul className='roads'>
           <li className='routePage'><Link to="/home" className='route'>Accueil</Link></li>
           <li className='routePage'><Link to="/about" className='route'>A propos</Link></li>
         </ul>

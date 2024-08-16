@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import '../styles/App.sass';
 import Header from './Header';
@@ -6,6 +5,7 @@ import Home from './Home';
 import Logements from './Logements';
 import Footer from "./Footer";
 import About from "./About";
+import Error404 from './Error404'; 
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/logements/:id" element={<Logements />} />
+            <Route path="/404" element={<Error404 />} />
           </Routes>
         </div>
         <Footer />

@@ -1,16 +1,16 @@
 import React from 'react';
-import logements from '../assets/logements.json';
 import '../styles/Home.sass';
 import Card from './Card';
 import Banner from './Banner';
+import logements from '../assets/logements.json';
 
 function Home() {
-  const logementsToShow = logements.slice(0, 6); // Affichez les 6 premiers logements
+  const logementsToShow = logements.slice(0, 6);
 
   return (
-    <div className="home">
+    <div className='home'>
       <Banner />
-      <div className='location'>
+      <div className='listLocation'>
         <div className="listHome">
           {logementsToShow.map((logement) => (
             <Card

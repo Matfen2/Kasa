@@ -1,37 +1,65 @@
 .collapse
   width: 80%
-  margin:  auto
-  background-color: #ff6f61
-  border-radius: 5px
-  cursor: pointer
-  padding: 1px 20px
-  color: white
-  text-align: left
-  font-weight: bold
-  display: flex
-  flex-direction: column
 
-  .collapse-header
+  & > .collapse-header
     display: flex
-    font-size: 1.2em
-    font-weight: 600
     justify-content: space-between
     align-items: center
+    background: #ff6f61
+    color: white
+    padding: 5px 20px
+    cursor: pointer
+    font-weight: 700
+    border-radius: 10px
     font-family: "Montserrat", sans-serif
+    transition: background-color 0.3s ease
 
-  .fa-solid
-    font-size: 1.6em
-    transition: transform 0.3s ease
+    &:hover
+      background-color: #e65a50
+
+    h2 
+      font-size: 1.2em
+
+    .fa-solid
+      font-size: 1.2em
+      transition: transform 0.3s ease
+
+    &.open .fa-solid
+      transform: rotate(180deg) 
 
   .collapse-content
-    background-color: white
-    color: black
-    padding: 15px
+    background: #f9f9f9
+    overflow: hidden
+    height: 0
+    transition: height 0.3s ease, padding 0.3s ease 
+    padding: 0 20px 
     border-radius: 0 0 10px 10px
-    text-align: left
-    display: none // Masquer le contenu par défaut
+    font-size: 1em
+    color: #333
+    font-family: "Montserrat", sans-serif
 
-  &.open .collapse-content
-    display: block // Afficher le contenu lorsque le collapse est ouvert
+    ul
+      list-style-type: none
+      padding-left: 0
+      margin: 0
+      li
+        padding: 5px 0
+        font-size: 1em
+        color: #333
+        font-family: "Montserrat", sans-serif
 
- 
+    p
+      font-size: 1em
+      color: #333
+      padding: 10px 0
+      font-family: "Montserrat", sans-serif
+
+    &.open
+      height: auto 
+      padding: 15px 20px 
+
+@media screen and (max-width: 650px)
+  .collapse
+    margin-top: 15px
+    margin-right: 30px
+    width: 100%

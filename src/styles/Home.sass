@@ -25,18 +25,21 @@
   font-family: "Montserrat", sans-serif
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
 
-.location
-  width: 95%
+.listLocation
   margin: 25px auto
+  padding: 5px 40px
   border-radius: 10px 
-  margin-bottom: 50px
   background-color: rgb(231, 231, 231)
-  padding: 15px 40px
 
 .listHome
   display: flex
   flex-wrap: wrap
-  margin-top: -20px 
-  padding-bottom: 25px
-  justify-content: space-between
-  gap: 3%
+  gap: 2% 
+  padding-top: 15px
+  padding-bottom: 15px
+  justify-content: center 
+
+@media screen and (max-width: 768px) 
+  .listHome
+    display: flex
+    flex-direction: column

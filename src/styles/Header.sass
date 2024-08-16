@@ -2,23 +2,98 @@
   width: 90%
   margin: 30px auto
   display: flex
-  flex-direction: row
+  align-items: center
   justify-content: space-between
-
-
-nav ul 
-  margin-top: 30px
-  display: flex
-  column-gap: 70px
   flex-direction: row
-  list-style-type: none
-  text-decoration: none
+
+.kasaLogo
+  height: 70px
+
+.listRoads
+  display: flex
+  align-items: center
+
+  .roads
+    margin-top: 30px
+    display: flex
+    flex-direction: row
+    list-style-type: none
+    text-decoration: none
+    column-gap: 50px // Adjust the gap between the navigation links for better spacing
 
 .route
   font-size: 1.7em
   font-weight: 600
   color: #000000
+  text-transform: uppercase
   font-family: "Montserrat", sans-serif
   text-decoration: none
   &:hover 
     text-decoration: underline
+
+.userIcons
+  display: flex
+  align-items: center
+  margin-left: 20px // Adjust margin for proper spacing between nav and icons
+
+@media screen and (max-width: 768px)
+  .header
+    width: 95% // Make header wider on smaller screens
+    margin: 20px auto
+    .kasaLogo
+      height: 58px
+
+    .listRoads 
+      .roads
+        column-gap: 30px
+
+        .route 
+          font-size: 1.4em
+
+    .userIcons
+      margin-left: 10px // Reduce margin on smaller screens
+
+@media screen and (max-width: 540px)
+  .header
+    width: 95%
+    margin: 20px auto
+    .kasaLogo
+      height: 48px
+
+    .listRoads 
+      .roads
+        column-gap: 20px
+
+        .route 
+          font-size: 1.2em
+
+    .userIcons
+      margin-left: 5px
+
+@media screen and (max-width: 424px)
+  .header
+    width: 95%
+    .kasaLogo
+      height: 38px
+
+    .listRoads 
+      .roads
+        column-gap: 15px
+
+        .route 
+          font-size: 0.9em
+
+    .userIcons
+      margin-left: 5px // Adjust spacing
+
+@media screen and (max-width: 340px)
+  .header
+    margin: 10px auto
+    .listRoads 
+      .roads
+        column-gap: 10px
+        .route 
+          font-size: 0.8em
+
+    .userIcons
+      margin-left: 3px // Further adjust spacing
