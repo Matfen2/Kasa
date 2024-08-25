@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Slideshow from '../components/Slideshow'; 
 import Collapse from '../components/Collapse'; 
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import logements from '../assets/logements.json';
 
 import '../styles/Logements.sass';
@@ -9,10 +9,17 @@ import '../styles/Collapse.sass';
 
 function Logement() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const location = logements.find((logement) => logement.id === id);
 
+  useEffect(() => {
+    if (!location) {
+      navigate('/404');
+    }
+  }, [location, navigate]);
+
   if (!location) {
-    return <Navigate to="/404" />;
+    return null; 
   }
 
   const renderStars = (rating) => {

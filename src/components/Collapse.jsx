@@ -23,8 +23,7 @@ function Collapse({ title, content }) {
     <div className={`collapse ${isOpen ? 'open' : ''}`}>
       <div className="collapse-header" onClick={toggleCollapse}>
         <h2>{title}</h2>
-        {/* Arrow logic: down when open, up when closed */}
-        <i className={`fa-solid fa-chevron-${isOpen ? 'down' : 'up'}`}></i>
+        <i className={`chevron-icon fa-solid fa-chevron-up ${isOpen ? 'open' : ''}`}></i>
       </div>
       <div className="collapse-content" ref={contentRef}>
         {content}

@@ -1,16 +1,30 @@
 import React from 'react';
 import '../styles/Header.sass';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logoSite from '../assets/logoSite.png';
 
 function Header() {
   return (
     <div className='header'>
-      <Link to="/"><img src={logoSite} alt='Kasa-Logo' className='kasaLogo' /></Link>
+      <NavLink to="/"><img src={logoSite} alt='Kasa-Logo' className='kasaLogo' /></NavLink>
       <nav className='listRoads'>
         <ul className='roads'>
-          <li className='routePage'><Link to="/home" className='route'>Accueil</Link></li>
-          <li className='routePage'><Link to="/about" className='route'>A propos</Link></li>
+          <li className='routePage'>
+            <NavLink 
+              to="/home" 
+              className={({ isActive }) => isActive ? 'route active' : 'route'}
+            >
+              Accueil
+            </NavLink>
+          </li>
+          <li className='routePage'>
+            <NavLink 
+              to="/about" 
+              className={({ isActive }) => isActive ? 'route active' : 'route'}
+            >
+              A propos
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
@@ -18,4 +32,3 @@ function Header() {
 }
 
 export default Header;
-

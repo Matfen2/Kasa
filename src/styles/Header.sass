@@ -3,60 +3,57 @@
   margin: 30px auto
   display: flex
   align-items: center
-  justify-content: space-between
   flex-direction: row
+  justify-content: space-between
 
 .kasaLogo
   height: 70px
 
 .listRoads
-  display: flex
-  align-items: center
-
   .roads
     margin-top: 30px
     display: flex
+    column-gap: 70px
     flex-direction: row
     list-style-type: none
     text-decoration: none
-    column-gap: 50px // Adjust the gap between the navigation links for better spacing
 
 .route
   font-size: 1.7em
   font-weight: 600
   color: #000000
-  text-transform: uppercase
   font-family: "Montserrat", sans-serif
   text-decoration: none
   &:hover 
     text-decoration: underline
 
-.userIcons
-  display: flex
-  align-items: center
-  margin-left: 20px // Adjust margin for proper spacing between nav and icons
+.active
+  text-decoration: underline
 
 @media screen and (max-width: 768px)
   .header
-    width: 95% // Make header wider on smaller screens
+    width: 95% 
     margin: 20px auto
     .kasaLogo
       height: 58px
 
     .listRoads 
+      margin-right: 17px
       .roads
+        margin-left: -120px
         column-gap: 30px
 
         .route 
           font-size: 1.4em
+          text-transform: uppercase
 
-    .userIcons
-      margin-left: 10px // Reduce margin on smaller screens
+
 
 @media screen and (max-width: 540px)
   .header
     width: 95%
     margin: 20px auto
+    margin-right: -2px
     .kasaLogo
       height: 48px
 
@@ -66,9 +63,6 @@
 
         .route 
           font-size: 1.2em
-
-    .userIcons
-      margin-left: 5px
 
 @media screen and (max-width: 424px)
   .header
@@ -83,9 +77,6 @@
         .route 
           font-size: 0.9em
 
-    .userIcons
-      margin-left: 5px // Adjust spacing
-
 @media screen and (max-width: 340px)
   .header
     margin: 10px auto
@@ -95,5 +86,3 @@
         .route 
           font-size: 0.8em
 
-    .userIcons
-      margin-left: 3px // Further adjust spacing

@@ -1,53 +1,48 @@
 .collapse
   width: 80%
 
-  & > .collapse-header
-    display: flex
-    justify-content: space-between
-    align-items: center
-    background: #ff6f61
-    color: white
-    padding: 5px 20px
-    cursor: pointer
-    font-weight: 700
-    border-radius: 10px
-    font-family: "Montserrat", sans-serif
-    transition: background-color 0.3s ease
+.collapse-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background: #ff6f61
+  color: white
+  padding: 5px 20px
+  cursor: pointer
+  font-weight: 700
+  border-radius: 10px
+  font-family: "Montserrat", sans-serif
+  transition: background-color 0.3s ease
 
-    &:hover
-      background-color: #e65a50
+.chevron-icon
+  transition: transform 0.3s ease
 
-    h2 
-      font-size: 1.2em
+  &.open
+    transform: rotate(180deg)   
 
-    .fa-solid
-      font-size: 1.2em
-      transition: transform 0.3s ease
+.collapse-content
+  background: #f9f9f9
+  overflow: hidden
+  height: 0
+  margin-top: -5px
+  transition: height 0.3s ease, padding 0.3s ease 
+  padding: 0 20px 
+  border-radius: 0 0 10px 10px
+  font-size: 1em
+  color: #333
+  font-family: "Montserrat", sans-serif
 
-    &.open .fa-solid
-      transform: rotate(180deg) 
+  ul
+    list-style-type: none
+    padding-left: 0
+    margin: 0
 
-  .collapse-content
-    background: #f9f9f9
-    overflow: hidden
-    height: 0
-    transition: height 0.3s ease, padding 0.3s ease 
-    padding: 0 20px 
-    border-radius: 0 0 10px 10px
-    font-size: 1em
-    color: #333
-    font-family: "Montserrat", sans-serif
-
-    ul
-      list-style-type: none
-      padding-left: 0
-      margin: 0
-      li
-        padding: 5px 0
-        font-size: 1em
-        color: #333
-        font-family: "Montserrat", sans-serif
-
+    li
+      padding: 5px 0
+      font-size: 1em
+      color: #333
+      font-family: "Montserrat", sans-serif
+      
     p
       font-size: 1em
       color: #333

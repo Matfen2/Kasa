@@ -18,13 +18,14 @@ function Slideshow({ pictures }) {
 
   return (
     <div className='slideshow'>
-      {pictures.length > 1 && (
-        <i className="fa-solid fa-chevron-left left-arrow" onClick={prevSlide}></i>
-      )}
       <img src={pictures[currentIndex]} alt={`Slide ${currentIndex + 1}`} className='slide-image'/>
-      <p className='slide-index'>{`${currentIndex + 1}/${pictures.length}`}</p>
+      
       {pictures.length > 1 && (
-        <i className="fa-solid fa-chevron-right right-arrow" onClick={nextSlide}></i>
+        <>
+          <i className="fa-solid fa-chevron-left left-arrow" onClick={prevSlide}></i>
+          <i className="fa-solid fa-chevron-right right-arrow" onClick={nextSlide}></i>
+          <p className='slide-index'>{`${currentIndex + 1}/${pictures.length}`}</p>
+        </>
       )}
     </div>
   );
