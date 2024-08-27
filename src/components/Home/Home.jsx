@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/Home.sass';
-import Card from './Card';
-import Banner from './Banner';
-import logements from '../assets/logements.json';
+import '../Home/Home.scss';
+import Card from "../../components/Card/Card";
+import Banner from "../../components/Banner/Banner";
+import logements from '../../data/logements.json';
 
 function Home() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import aboutLogo from '../assets/about.png'
-import '../styles/Banner2.sass'
+import '../Banner2/Banner2.scss'
 
 function Banner2() {
   return (

@@ -1,0 +1,71 @@
+@mixin flexbox($direction: column, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-setup($family: "Montserrat", $size: 1em, $weight: normal, $color: #000) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin transition($properties...) {
+  transition: $properties;
+}
+
+.error-container {
+  @include flexbox();
+  text-align: center;
+  padding: 20px;
+
+  .code {
+    font-size: 10em;
+    color: #ff6f61;
+    margin-top: 10px;
+    font-family: "Montserrat";
+  }
+
+  .noExist {
+    margin-top: -20px;
+    font-size: 1.8em;
+    @include font-setup("Montserrat", 1.8em, normal, #ff6f61);
+  }
+
+  a {
+    cursor: pointer;
+    margin-top: 90px;
+    margin-bottom: 100px;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    @include font-setup("Montserrat", 1em, normal, #000);
+    @include transition(color 0.3ms ease, border-color 0.3s ease);
+
+    &:hover {
+      color: #ff6f61;
+      border-color: #ff6f61;
+    }
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .error-container {
+    margin-right: -10px;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .error-container {
+    
+    .code {
+      font-size: 7em;
+      margin-bottom: 160px;
+    }
+
+    .noExist {
+      margin-bottom: 80px;
+    }
+  }
+}

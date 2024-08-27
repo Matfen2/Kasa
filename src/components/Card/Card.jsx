@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Card.sass';
+import '../Card/Card.scss';
 import { useNavigate } from 'react-router-dom';
 
 function Card({ id, title, cover }) {

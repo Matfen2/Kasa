@@ -1,0 +1,65 @@
+@mixin flexbox($direction: column, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-setup($family: "Montserrat", $size: 1em, $weight: normal, $color: #fff) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+.footer {
+  background-color: #000000;  
+  color: azure;  
+  text-align: center;
+  padding: 48px 30px;
+  width: 100vw;
+  margin-bottom: -10px;
+  margin-left: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;  
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .footerLogo {
+    height: 34px;
+    margin-top: 16px;
+    max-width: 150px;
+  }
+
+  .copy {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 1.2em;
+    @include font-setup("Montserrat", 1.2em);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 40px 15px;
+
+    .copy {
+      font-size: 1em;
+      margin-top: 15px;
+    }
+
+    .footerLogo {
+      height: 28px;
+      max-width: 120px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    padding: 80px 5px;
+  }
+}

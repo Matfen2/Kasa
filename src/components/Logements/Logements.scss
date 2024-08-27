@@ -1,0 +1,284 @@
+@mixin flex($direction: column, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-setup($family: "Montserrat", $size: 1em, $weight: normal, $color: #333) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+.logement {
+  width: 90%;
+  padding: 20px;
+  margin: -18px auto;
+}
+
+.slideshow {
+  width: 100%;
+  @include flex();
+
+  img {
+    height: 530px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+}
+
+.listInfo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+
+.info {
+  margin-top: -5px;
+
+  .title {
+    font-size: 2.4em;
+    color: #ff6f61;
+    font-weight: 600;
+    @include font-setup("Montserrat", 2.4em, 600, #ff6f61);
+  }
+
+  .country {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: -31px;
+    @include font-setup("Montserrat", 1.2em, 500, #000000);
+  }
+
+  .tags {
+    margin-top: 5px;
+
+    .tag {
+      display: inline-block;
+      background: #ff6f61;
+      color: white;
+      font-size: 1.1em;
+      padding: 5px 35px;
+      margin-right: 12px;
+      border-radius: 9px;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+      @include font-setup("Montserrat", 1.1em, 600, #ffffff);
+    }
+  }
+}
+
+.host {
+  margin-top: 10px;
+  @include flex(column, flex-end);
+
+  .identity {
+    @include flex(row, space-between);
+
+    .name {
+      width: 55%;
+      line-height: 32px;
+      font-size: 1.4em;
+      color: #ff6f61;
+      font-weight: 500;
+      text-align: right;
+      @include font-setup("Montserrat", 1.4em, 500, #ff6f61);
+    }
+
+    .people {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .rating {
+    display: flex;
+    column-gap: 5px;
+    margin-top: 4px;
+    text-align: right;
+
+    .fa-star {
+      font-size: 1.4em;
+      margin-right: 8px;
+    }
+
+    .filled {
+      color: #ff6f61;
+    }
+
+    .empty {
+      color: #e0e0e0;
+    }
+  }
+}
+
+.listDescribe {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 80px;
+  margin: 40px 0 60px;
+}
+
+@media screen and (max-width: 920px) {
+  .tags .tag {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logement {
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .logement {
+    padding-right: 70px;
+  }
+
+  .slideshow img {
+    height: 550px;
+    margin-right: -20px;
+  }
+
+  .listInfo {
+    text-align: center;
+    margin: auto;
+    display: block;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .info {
+
+    .title {
+      font-size: 2.3em;
+    }
+
+    .country {
+      font-size: 1.7em;
+      margin-top: -12px;
+    }
+
+    .tags {
+      gap: 10px;
+
+      .tag {
+        font-size: 1.4em;
+      }
+
+    }
+  }
+
+  .host {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+    .identity {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+  }
+
+  .rating {
+    align-items: center;
+
+    .fa-star {
+      font-size: 1.4em;
+      margin-left: -4px;
+    }
+
+    .filled {
+      color: #ff6f61;
+    }
+
+    .empty {
+      color: #e0e0e0;
+    }
+  }
+
+  .identity .name {
+    margin-right: -28px;
+    font-size: 1.2em;
+    @include font-setup("Montserrat", 1.2em, 500, #ff6f61);
+  }
+
+  .identity .people {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .listDescribe {
+    gap: 20px;
+    width: 93%;
+    margin-left: 36px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 408px) {
+  .logement .listInfo .info .tags {
+    margin-top: -10px;
+
+    .tag {
+      width: 40%;
+      margin-top: 20px;
+    }
+  }
+
+  .host .identity .name {
+    font-size: 1.2em;
+    line-height: 22px;
+    margin-right: 22px;
+  }
+
+  .rating .fa-star {
+    font-size: 1.2em;
+    margin-left: -6px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .logement .slideshow {
+    margin-right: 17px;
+  }
+
+  .host {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .logement .listInfo .identity .people {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .logement .listInfo .host .identity .name {
+    font-size: 1.2em;
+    line-height: 22px;
+    margin-right: -22px;
+  }
+
+  .rating .fa-star {
+    font-size: 1.0em;
+    margin-left: -8px;
+  }
+}

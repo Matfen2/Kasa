@@ -1,0 +1,152 @@
+@mixin flexbox($direction: row, $justify: space-between, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-setup($family: "Montserrat", $size: 1em, $weight: normal, $color: #000) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+.header {
+  width: 90%;
+  margin: 30px auto;
+  @include flexbox();
+
+  .kasaLogo {
+    height: 70px;
+  }
+
+  .listRoads {
+
+    .roads {
+      margin-top: 30px;
+      @include flexbox(row, start);
+      column-gap: 70px;
+      list-style-type: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.route {
+  font-size: 1.7em;
+  font-weight: 600;
+  text-decoration: none;
+  @include font-setup("Montserrat", 1.7em, 600, #000);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.active {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 95%;
+    margin: 20px auto;
+
+    .kasaLogo {
+      height: 58px;
+    }
+
+    .listRoads {
+      margin-right: 17px;
+
+      .roads {
+        margin-left: -120px;
+        column-gap: 30px;
+
+        .route {
+          font-size: 1.4em;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    width: 95%;
+    margin: 20px auto;
+    margin-right: -2px;
+
+    .kasaLogo {
+      height: 48px;
+    }
+
+    .listRoads {
+
+      .roads {
+        column-gap: 20px;
+
+        .route {
+          font-size: 1.0em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    margin: 10px auto;
+    margin-right: -20px;
+
+    .listRoads {
+      margin-right: 35px;
+
+      .roads {
+        column-gap: 10px;
+
+        .route {
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .header {
+
+    .listRoads {
+
+      .roads {
+
+        .route {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    align-items: center;
+
+    .kasaLogo {
+      height: 30px;
+      margin-bottom: -10px;
+    }
+
+    .listRoads {
+
+      .roads {
+
+        .route {
+          font-size: 0.7em;
+        }
+      }
+    }
+  }
+}

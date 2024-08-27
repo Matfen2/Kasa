@@ -1,6 +1,6 @@
 import React from 'react';
-import homeLogo from '../assets/home.png'
-import '../styles/Banner.sass';
+import homeLogo from '../../assets/home.png'
+import '../Banner/Banner.scss';
 
 function Banner() {
   return (

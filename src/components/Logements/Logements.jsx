@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import Slideshow from '../components/Slideshow'; 
-import Collapse from '../components/Collapse'; 
+import Slideshow from "../../components/Slideshow/Slideshow"; 
+import Collapse from "../../components/Collapse/Collapse";
 import { useParams, useNavigate } from 'react-router-dom';
-import logements from '../assets/logements.json';
+import logements from '../../data/logements.json';
 
-import '../styles/Logements.sass';
-import '../styles/Collapse.sass'; 
+import '../Logements/Logements.scss';
+import '../Collapse/Collapse.scss'; 
 
 function Logement() {
   const { id } = useParams();

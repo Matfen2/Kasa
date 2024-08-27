@@ -1,8 +1,7 @@
 import React from 'react';
-import Banner from '../components/Banner2';  
-import Collapse from '../components/Collapse';
-import '../styles/About.sass';
-import '../styles/Collapse.sass'; 
+import Banner from "../../components/Banner/Banner"  
+import Collapse from "../../components/Collapse/Collapse";
+import '../About/About.scss';
 
 function About() {
   return (

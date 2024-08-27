@@ -1,0 +1,70 @@
+@mixin centered-content($position: absolute, $top: 50%) {
+  position: $position;
+  top: $top;
+  transform: translateY(-50%);
+}
+
+@mixin font-setup($family: "Montserrat", $size: 1em, $weight: normal, $color: #fff) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+
+  .slide-image {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  .left-arrow, .right-arrow {
+    @include centered-content();
+    font-size: 4.5em;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+
+    &.left-arrow {
+      left: 10px;
+    }
+
+    &.right-arrow {
+      right: 10px;
+    }
+  }
+
+  .slide-index {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-shadow: 0px 1px 7px #000;
+    @include font-setup("Montserrat", 1.5em, 600, white);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .slideshow {
+
+    .left-arrow, .right-arrow {
+
+      &.left-arrow {
+        left: 20px;
+      }
+
+      &.right-arrow {
+        right: 2px;
+      }
+    }
+  }
+}
