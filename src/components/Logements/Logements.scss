@@ -74,6 +74,7 @@
 }
 
 .host {
+  width: 190px;
   margin-top: 10px;
   @include flex(column, flex-end);
 
@@ -102,11 +103,10 @@
     display: flex;
     column-gap: 5px;
     margin-top: 4px;
-    text-align: right;
 
     .fa-star {
       font-size: 1.4em;
-      margin-right: 8px;
+      margin-right: 3px;
     }
 
     .filled {
@@ -134,151 +134,88 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .logement {
-    padding-right: 40px;
-  }
-}
-
 @media screen and (max-width: 650px) {
-  .logement {
-    padding-right: 70px;
-  }
-
-  .slideshow img {
-    height: 550px;
-    margin-right: -20px;
-  }
-
   .listInfo {
-    text-align: center;
-    margin: auto;
-    display: block;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .info {
-
-    .title {
-      font-size: 2.3em;
-    }
-
-    .country {
-      font-size: 1.7em;
-      margin-top: -12px;
-    }
-
-    .tags {
-      gap: 10px;
-
-      .tag {
-        font-size: 1.4em;
-      }
-
-    }
-  }
-
-  .host {
     display: flex;
-    text-align: center;
     flex-direction: column;
-    align-items: center;
-    margin: auto;
+    gap: 10px; 
+    width: 100%; 
+    
+    .host {
+      display: flex;
+      flex-direction: row; 
+      margin-bottom: -20px;
+      justify-content: space-between; 
+      align-items: center; 
+      text-align: left; 
+      width: 100%; 
+      gap: 10px; 
+    }
+
+    .rating {
+      order: 1; 
+      display: flex;
+      justify-content: flex-start; 
+      margin-right: auto; 
+      
+      .fa-star {
+        font-size: 1.2em;
+        margin-right: -3px;
+      }
+    }
 
     .identity {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-  }
-
-  .rating {
-    align-items: center;
-
-    .fa-star {
-      font-size: 1.4em;
-      margin-left: -4px;
+      order: 2; 
+      display: flex;
+      flex-direction: row; 
+      align-items: center; 
+      justify-content: flex-end; 
+      text-align: right; 
     }
 
-    .filled {
-      color: #ff6f61;
+    .identity .name {
+      margin-right: 10px; 
     }
 
-    .empty {
-      color: #e0e0e0;
+    .identity .people {
+      width: 70px; 
+      height: 70px; 
+      border-radius: 50%; 
+      object-fit: cover; 
     }
-  }
-
-  .identity .name {
-    margin-right: -28px;
-    font-size: 1.2em;
-    @include font-setup("Montserrat", 1.2em, 500, #ff6f61);
-  }
-
-  .identity .people {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   .listDescribe {
-    gap: 20px;
-    width: 93%;
-    margin-left: 36px;
+    gap: 32px;
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 408px) {
-  .logement .listInfo .info .tags {
-    margin-top: -10px;
-
-    .tag {
-      width: 40%;
-      margin-top: 20px;
-    }
-  }
-
-  .host .identity .name {
-    font-size: 1.2em;
-    line-height: 22px;
-    margin-right: 22px;
-  }
-
-  .rating .fa-star {
-    font-size: 1.2em;
-    margin-left: -6px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .logement .slideshow {
-    margin-right: 17px;
-  }
+  .listInfo 
+    
+    .host {
+      padding: 5px;
 
-  .host {
-    margin-top: 10px;
-  }
-}
+      .identity {
+        
+        .name {
+          font-size: 1.0em;
+          line-height: 22px;
+          margin-right: 12px;
+        }
 
-@media screen and (max-width: 364px) {
-  .logement .listInfo .identity .people {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-@media screen and (max-width: 345px) {
-  .logement .listInfo .host .identity .name {
-    font-size: 1.2em;
-    line-height: 22px;
-    margin-right: -22px;
-  }
-
-  .rating .fa-star {
-    font-size: 1.0em;
-    margin-left: -8px;
-  }
+        .people {
+          height: 60px;
+          width: 60px;
+        }
+      }
+      .rating 
+        .fa-star {
+          font-size: 1.1em;
+          margin-left: 0px;
+      }
+    }
 }
