@@ -1,13 +1,14 @@
 import React from 'react'; // Importation de React
 import Banner from "../../components/Banner/Banner"; // Importation du composant Banner
+import aboutIMG from '../../assets/about.png'
 import Collapse from "../../components/Collapse/Collapse"; // Importation du composant Collapse
 import '../About/About.scss'; // Importation des styles SCSS pour le composant About
 
-function About() {
+function About({ bgIMG }) {
   return (
     <div className="about"> 
       <div className="freedom"> 
-        <Banner /> {/* Affichage de la bannière */}
+        <Banner bgIMG={aboutIMG}/> 
       </div>
       <div className="listAbout"> 
         <Collapse title="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes." />
